@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/twitter", to: "users#twitter_post"
   get "/register", to: "users#register"
   post "/register", to: "users#register_post"
+  post "/update", to: "users#update"
 
   post "/get-user-json", to: "users#get_user_json"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

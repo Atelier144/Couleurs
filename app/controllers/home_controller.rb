@@ -12,13 +12,18 @@ class HomeController < ApplicationController
     end
 
     if user
-      @user_id = user.id
-      @user_image = user.image.url
-      @user_color = user.color
+      @user = user
     else
-      @user_id = 0
-      @user_image = ""
-      @user_color = "#FFFFFF"
+      @user = User.new(
+          id: 0,
+          image: "",
+          name: "",
+          description: "",
+          url: "",
+          twitter_url: "",
+          color: "#7F7F7F",
+          is_published: false
+      )
     end
 
     @users = User.where(is_published: true)

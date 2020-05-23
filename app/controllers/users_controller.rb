@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  protect_from_forgery :except => ["twitter_post", "register_post", "logout"]
+  protect_from_forgery :except => ["twitter_post", "register_post", "update","logout"]
 
   def twitter
     auth_hash = request.env["omniauth.auth"]
@@ -64,6 +64,20 @@ class UsersController < ApplicationController
     else
       redirect_to("/register")
     end
+  end
+
+  def update
+    user = User.find_by(id: session[:user_id])
+    if user
+      user.image = params[:image] if params[:image]
+      user.name = params[:name]
+      user.description = params[:description]
+      user.url = params[:url]
+      user.color = params[:color]
+      user.is_published = !params[:is_published].nil?
+      user.save
+    end
+    redirect_to("/")
   end
 
   def failure
