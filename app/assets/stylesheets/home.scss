@@ -44,11 +44,16 @@ button{
     top: 0;
     left: 0;
     .logo{
-      font-size: 48px;
-      font-weight: 900;
-      position: absolute;
-      line-height: 60px;
-      padding-left: 10px;
+      @media (max-width: 600px) {
+        display: none;
+      }
+      @media (min-width: 600px) {
+        font-size: 48px;
+        font-weight: 900;
+        position: absolute;
+        line-height: 60px;
+        padding-left: 10px;
+      }
     }
     button.change-mode{
       display: block;
@@ -187,8 +192,15 @@ button{
     transition: opacity 1s;
     .profile-box{
       padding: 20px;
-      margin: 0 auto;
-      width: 480px;
+      @media (max-width: 500px) {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      @media (min-width: 500px) {
+        width: 480px;
+        margin-right: auto;
+        margin-left: auto;
+      }
       border-radius: 20px;
       position: relative;
       img{
@@ -404,7 +416,7 @@ button{
       .settings-warning{
         color: red;
         font-size: 12px;
-        line-height: 15px;
+        line-height: 20px;
       }
       div.check-box{
         margin-top: 10px;

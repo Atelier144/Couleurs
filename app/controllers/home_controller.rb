@@ -26,7 +26,7 @@ class HomeController < ApplicationController
       )
     end
 
-    @users = User.where(is_published: true)
+    @users = User.where(is_published: true).where.not(color: nil)
   end
 
   def change_mode
